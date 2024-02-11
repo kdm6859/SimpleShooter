@@ -73,7 +73,7 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 		Input->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AShooterCharacter::NewMove);
 		Input->BindAction(LookAction, ETriggerEvent::Triggered, this, &AShooterCharacter::NewLook);
 
-		//Input->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AShooterCharacter::);
+		Input->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AShooterCharacter::Shoot);
 	}
 }
 
@@ -112,7 +112,7 @@ void AShooterCharacter::NewMove(const FInputActionInstance& Instance)
 		AddMovementInput(FowardDirection, MovementVector.Y);
 		AddMovementInput(RightDirection, MovementVector.X);
 
-		UE_LOG(LogTemp, Warning, TEXT("XXXXX : %f, YYYYY : %f"), MovementVector.X, MovementVector.Y);
+		//UE_LOG(LogTemp, Warning, TEXT("XXXXX : %f, YYYYY : %f"), MovementVector.X, MovementVector.Y);
 	}
 }
 
@@ -129,7 +129,7 @@ void AShooterCharacter::NewLook(const FInputActionInstance& Instance)
 
 void AShooterCharacter::Shoot()
 {
-	//Gun->PullTrigger();
+	Gun->PullTrigger();
 }
 
 
