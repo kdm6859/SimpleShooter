@@ -5,12 +5,13 @@
 
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Gun.h"
 
 
 // Sets default values
 AShooterCharacter::AShooterCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -29,7 +30,13 @@ void AShooterCharacter::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
-	
+
+
+	/*Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
+	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
+	Gun->SetOwner(this);*/
+
 }
 
 // Called every frame
@@ -65,6 +72,8 @@ void AShooterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 		Input->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AShooterCharacter::NewMove);
 		Input->BindAction(LookAction, ETriggerEvent::Triggered, this, &AShooterCharacter::NewLook);
+
+		//Input->BindAction(ShootAction, ETriggerEvent::Triggered, this, &AShooterCharacter::);
 	}
 }
 
@@ -117,6 +126,11 @@ void AShooterCharacter::NewLook(const FInputActionInstance& Instance)
 		AddControllerPitchInput(LookVector.Y);
 	}
 }
+
+//void AShooterCharacter::Shoot()
+//{
+//	//Gun->PullTrigger();
+//}
 
 
 
