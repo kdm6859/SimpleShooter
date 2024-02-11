@@ -32,10 +32,10 @@ void AShooterCharacter::BeginPlay()
 	}
 
 
-	/*Gun = GetWorld()->SpawnActor<AGun>(GunClass);
+	Gun = GetWorld()->SpawnActor<AGun>(GunClass);
 	GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
 	Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("WeaponSocket"));
-	Gun->SetOwner(this);*/
+	Gun->SetOwner(this);
 
 }
 
@@ -127,10 +127,10 @@ void AShooterCharacter::NewLook(const FInputActionInstance& Instance)
 	}
 }
 
-//void AShooterCharacter::Shoot()
-//{
-//	//Gun->PullTrigger();
-//}
+void AShooterCharacter::Shoot()
+{
+	//Gun->PullTrigger();
+}
 
 
 

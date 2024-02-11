@@ -37,11 +37,11 @@ private:
 	UPROPERTY(EditAnywhere)
 	float RotationRate = 20;
 
-	/*UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<class AGun> GunClass;
 
 	UPROPERTY()
-	AGun* Gun;*/
+	AGun* Gun;
 
 
 	UPROPERTY(EditAnywhere, Category = Input)
@@ -63,6 +63,6 @@ private:
 protected:
 	void NewMove(const struct FInputActionInstance& Instance);
 	void NewLook(const FInputActionInstance& Instance);
-	//void Shoot();
+	void Shoot();
 
 };
